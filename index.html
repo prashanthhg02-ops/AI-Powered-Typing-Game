@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#100f17">
+    <meta name="description" content="Enter the arena, defeat monsters by typing, and let a machine-learning coach tune your training.">
+    <title>Keyflow Battle — Words become weapons</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js" defer></script>
+    <script src="{{ url_for('static', filename='js/app.js') }}" defer></script>
+  </head>
+  <body>
+    <div class="ambient ambient-one"></div>
+    <div class="ambient ambient-two"></div>
+    <header class="topbar">
+      <a class="brand" href="#" data-page-link="home" aria-label="Keyflow Battle home">
+        <span class="brand-mark">K<span>✳</span></span>
+        <span>KEYFLOW<span class="brand-sub">BATTLE</span></span>
+      </a>
+      <nav class="main-nav" aria-label="Main navigation">
+        <button class="nav-link active" data-page-link="home">Home</button>
+        <button class="nav-link" data-page-link="stats">My stats</button>
+        <button class="nav-link" data-page-link="practice">Training</button>
+        <button class="nav-link" data-dialog="settings">Settings</button>
+      </nav>
+      <div class="topbar-actions">
+        <span class="online-pill"><i></i> AI COACH READY</span>
+        <button class="icon-button" id="sound-toggle" type="button" aria-label="Toggle sound" title="Toggle sound" aria-pressed="false">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4V5Zm4.5 3.5a5 5 0 0 1 0 7m3-10a9 9 0 0 1 0 13"/></svg>
+        </button>
+      </div>
+    </header>
+
+    <main class="app-main">
+      <section class="page active" data-page="home">
+        <div class="hero">
+          <div class="hero-copy">
+            <p class="eyebrow"><span>✳</span> TYPE WITH PURPOSE. FIGHT WITH FOCUS.</p>
+            <h1>Words become<br><span>weapons.</span></h1>
+            <p class="hero-description">Every keystroke strikes back. Sharpen your skills, outsmart the monsters, and let your AI coach find your next challenge.</p>
+            <div class="hero-actions">
+              <button class="button button-primary button-large" data-page-link="modes">Enter the arena <span>→</span></button>
+              <button class="button button-quiet" data-dialog="howto">How to play <span>↗</span></button>
+            </div>
+            <div class="hero-trust"><span class="trust-icon">✳</span> Adaptive AI <b>·</b> Private by design <b>·</b> No account needed</div>
+          </div>
+          <div class="hero-art" aria-label="Illustration of a warrior facing a dragon">
+            <div class="moon"></div><div class="art-stars">✦ &nbsp;· &nbsp; ✧ &nbsp;·</div>
+            <div class="mountain mountain-back"></div><div class="mountain mountain-front"></div>
+            <div class="hero-art-glow"></div>
+            <div class="art-character warrior-art">
+              <svg viewBox="0 0 170 230" role="img" aria-label="Armored warrior with a glowing sword">
+                <defs><linearGradient id="armor" x1="0" x2="1"><stop stop-color="#8297a3"/><stop offset=".48" stop-color="#d4c7a1"/><stop offset="1" stop-color="#657983"/></linearGradient><linearGradient id="blade" x1="0" x2="1"><stop stop-color="#fff6cb"/><stop offset="1" stop-color="#b7e8ff"/></linearGradient></defs>
+                <path d="m43 57 10-36 33-12 33 15 6 35-13 21H54Z" fill="#4b3030" stroke="#d0a46c" stroke-width="4"/>
+                <path d="m52 45 5-22 33-10 22 14 6 21-18 8-31-2Z" fill="#d0a46c"/><path d="m62 47 8-15 26-6 16 12-13 19-26 1Z" fill="#242736"/>
+                <path d="m66 60-32 12-21 47 28 18 7 65 36 14 32-19 9-65 23-18-24-39-30-10Z" fill="url(#armor)" stroke="#252a34" stroke-width="5"/>
+                <path d="m38 78-20 38 18 10 18-34m65-14 22 37-17 11-18-34" fill="none" stroke="#9caaad" stroke-width="13"/>
+                <path d="m46 133 26-16 23 13-15 21-30-2m38-15 21-13 21 18-20 16-25-3" fill="#647b82" stroke="#283139" stroke-width="4"/>
+                <path d="m50 188-8 37m58-39 12 36" stroke="#343641" stroke-width="16" stroke-linecap="round"/>
+                <path d="m138 115 26-92m-14 103 12-4" stroke="url(#blade)" stroke-width="5" stroke-linecap="round" filter="drop-shadow(0 0 8px #b5e7ff)"/>
+                <path d="m131 121 17 5m-24 4 11-13" stroke="#caa565" stroke-width="7" stroke-linecap="round"/>
+                <path d="m69 71 24 4-12 27Z" fill="#b44f41"/><path d="m46 117 32 15-14 10-22-14" fill="#b44f41"/>
+              </svg>
+            </div>
+            <div class="art-character monster-art">
+              <svg viewBox="0 0 230 210" role="img" aria-label="A fierce, original purple dragon monster">
+                <defs><linearGradient id="scales" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#80508b"/><stop offset="1" stop-color="#302443"/></linearGradient></defs>
+                <path d="m120 95 28-61 42 28-23 52m-59-30L88 17 48 47l35 55" fill="#60446f" stroke="#a07ca1" stroke-width="6" stroke-linejoin="round"/>
+                <path d="m91 76 24-43 32 24 26-7 31 26-9 43 20 36-36 30-72 2-39-28 7-49Z" fill="url(#scales)" stroke="#b384aa" stroke-width="5"/>
+                <path d="m161 89 34 15-8 24-34-5Z" fill="#211c2b"/><circle cx="173" cy="99" r="5" fill="#ffd16e"/><circle cx="174" cy="99" r="2" fill="#291e2e"/>
+                <path d="m124 94 24-8-5 27-23 8Z" fill="#30263b"/><circle cx="133" cy="101" r="5" fill="#ffcc70"/>
+                <path d="m148 122 31 10-16 9-19-10Z" fill="#e9bed2"/><path d="m171 126 2 10m-14-9 2 10" stroke="#f2dce6" stroke-width="3"/>
+                <path d="m105 120-39 17-24 37 31 3 46-27m52-9 25 29-16 15-37-23" fill="none" stroke="#684778" stroke-width="17" stroke-linecap="round"/>
+                <path d="m111 181-6 23m70-22 15 20" stroke="#46334f" stroke-width="13" stroke-linecap="round"/>
+                <path d="m85 54-24-7 15-20m45 25-1-25 23 16" fill="#ad718b" stroke="#eed0dc" stroke-width="3"/>
+              </svg>
+            </div>
+            <div class="art-caption"><span>✦</span> THE SHADOW WYRM <i></i> LV. 08</div>
+          </div>
+        </div>
+
+        <div class="feature-row">
+          <article class="feature-card"><span class="feature-icon">⌘</span><div><h2>Your skill. The right challenge.</h2><p>A real scikit-learn model predicts your typing level and adapts the next fight.</p></div><span class="feature-number">01</span></article>
+          <article class="feature-card"><span class="feature-icon">⚔</span><div><h2>Every word lands a blow.</h2><p>Type clean and fast to attack. Build combos. Break through three game modes.</p></div><span class="feature-number">02</span></article>
+          <article class="feature-card"><span class="feature-icon">↗</span><div><h2>See your skills grow.</h2><p>Track your battles, discover tricky keys, and practice what you need most.</p></div><span class="feature-number">03</span></article>
+        </div>
+        <div class="home-bottom"><span>YOUR JOURNEY SO FAR</span><strong><span id="home-sessions">0</span> battles fought</strong><button class="text-link" data-page-link="stats">View your stats →</button></div>
+      </section>
+
+      <section class="page" data-page="modes">
+        <div class="page-heading"><button class="back-link" data-page-link="home">← Home</button><p class="eyebrow"><span>✳</span> CHOOSE YOUR TRIAL</p><h1>Pick your <span>battle.</span></h1><p>Every mode trains your typing. Choose the fight that feels right.</p></div>
+        <div class="mode-grid">
+          <article class="mode-card mode-training"><div class="mode-art-symbol">⌁</div><div class="mode-level">01 <span>LOW PRESSURE</span></div><h2>Training</h2><p>Warm up at your own pace. No health lost for mistakes. Build your rhythm.</p><ul><li>60-second practice</li><li>Perfect for learning</li><li>Gentle word set</li></ul><button class="button button-secondary" data-start-mode="training">Start training <span>→</span></button></article>
+          <article class="mode-card mode-normal"><div class="mode-art-symbol">⚔</div><div class="mode-level">02 <span>ARENA CLASSIC</span></div><h2>Normal battle</h2><p>Strike true, guard your health, and keep your combo alive to win.</p><ul><li>90-second rounds</li><li>Balanced monster</li><li>Combo multipliers</li></ul><button class="button button-primary" data-start-mode="normal">Enter the arena <span>→</span></button></article>
+          <article class="mode-card mode-boss"><div class="mode-art-symbol">♜</div><div class="mode-level">03 <span>HIGH STAKES</span></div><h2>Boss battle</h2><p>A tougher foe, longer words, and an epic health pool. Ready, warrior?</p><ul><li>120-second rounds</li><li>Double monster health</li><li>Greater rewards</li></ul><button class="button button-secondary" data-start-mode="boss">Challenge the boss <span>→</span></button></article>
+        </div>
+        <div class="ai-callout"><div class="ai-icon">✳</div><div><strong>LET THE AI CHOOSE YOUR NEXT CHALLENGE</strong><p>Finish a round to get a personal difficulty recommendation from the skill model.</p></div><span class="model-chip">RANDOM FOREST · SCIKIT-LEARN</span></div>
+      </section>
+
+      <section class="page" data-page="arena">
+        <div class="arena-top"><button class="back-link" data-page-link="modes">← Modes</button><div><span class="arena-mode-tag" id="arena-mode">NORMAL BATTLE</span><span class="round-tag" id="arena-round">ROUND 01</span></div><div class="arena-controls"><button class="button button-small" id="pause-button">Ⅱ Pause</button><button class="button button-small" data-page-link="home">Main menu</button></div></div>
+        <div class="battlefield" id="battlefield">
+          <div class="battle-sky"><div class="battle-moon"></div><i class="star star-a">✦</i><i class="star star-b">✧</i><i class="star star-c">✦</i><div class="battle-mountains"></div><div class="battle-ground"></div></div>
+          <div class="combatant warrior-combatant" id="warrior">
+            <div class="combat-name"><span>YOU</span><span id="player-health-label">100 / 100</span></div><div class="health-track"><div class="health-fill player-health" id="player-health"></div></div>
+            <div class="fighter-wrap"><div class="fighter-glow"></div><div class="fighter-svg">
+              <svg viewBox="0 0 170 230" aria-label="Armored typing warrior"><path d="m43 57 10-36 33-12 33 15 6 35-13 21H54Z" fill="#493338" stroke="#cda66b" stroke-width="4"/><path d="m55 45 7-22 29-10 25 17 5 18-18 11-34-4Z" fill="#cba76c"/><path d="m63 45 10-15 25-5 16 14-13 16-28 1Z" fill="#252a36"/><path d="m66 60-32 12-21 47 28 18 7 65 36 14 32-19 9-65 23-18-24-39-30-10Z" fill="#81949a" stroke="#29313b" stroke-width="5"/><path d="m46 132 26-15 23 13-15 22-30-3m38-18 21-14 21 18-20 16-25-3" fill="#607681" stroke="#29313b" stroke-width="4"/><path d="m50 188-8 37m58-39 12 36" stroke="#36333a" stroke-width="16" stroke-linecap="round"/><path class="sword-blade" d="m139 118 24-94" stroke="#d4eeff" stroke-width="5" stroke-linecap="round"/><path d="m131 124 17 5m-24 4 11-13" stroke="#cda66b" stroke-width="7" stroke-linecap="round"/><path d="m69 71 24 4-12 27Z" fill="#ab5148"/></svg>
+            </div></div><div class="fighter-caption">THE WAYFINDER <span>✦</span></div>
+          </div>
+          <div class="combat-center"><div class="vs-mark">VS</div><div class="battle-effects" id="battle-effects"></div></div>
+          <div class="combatant monster-combatant" id="monster">
+            <div class="combat-name"><span id="monster-name">ASH WRAITH</span><span id="monster-health-label">100 / 100</span></div><div class="health-track"><div class="health-fill monster-health" id="monster-health"></div></div>
+            <div class="fighter-wrap"><div class="monster-glow"></div><div class="fighter-svg monster-svg">
+              <svg viewBox="0 0 230 210" aria-label="Fantasy monster"><path d="m120 95 28-61 42 28-23 52m-59-30L88 17 48 47l35 55" fill="#60446f" stroke="#aa84ab" stroke-width="6" stroke-linejoin="round"/><path d="m91 76 24-43 32 24 26-7 31 26-9 43 20 36-36 30-72 2-39-28 7-49Z" fill="#674476" stroke="#b384aa" stroke-width="5"/><path d="m161 89 34 15-8 24-34-5Z" fill="#211c2b"/><circle cx="173" cy="99" r="5" fill="#ffd16e"/><path d="m124 94 24-8-5 27-23 8Z" fill="#30263b"/><circle cx="133" cy="101" r="5" fill="#ffcc70"/><path d="m148 122 31 10-16 9-19-10Z" fill="#e9bed2"/><path d="m105 120-39 17-24 37 31 3 46-27m52-9 25 29-16 15-37-23" fill="none" stroke="#684778" stroke-width="17" stroke-linecap="round"/><path d="m111 181-6 23m70-22 15 20" stroke="#46334f" stroke-width="13" stroke-linecap="round"/><path d="m85 54-24-7 15-20m45 25-1-25 23 16" fill="#ad718b" stroke="#eed0dc" stroke-width="3"/></svg>
+            </div></div><div class="fighter-caption" id="monster-caption">A HUNGRY SHADOW <span>◆</span></div>
+          </div>
+          <div class="battle-sparks" id="battle-sparks" aria-hidden="true"></div>
+          <div class="arena-announcement" id="arena-announcement" aria-live="polite"></div>
+        </div>
+        <div class="arena-metrics"><div><span>SCORE</span><strong id="game-score">0</strong></div><div><span>WPM</span><strong id="game-wpm">0</strong></div><div><span>ACCURACY</span><strong><i id="game-accuracy">100</i><small>%</small></strong></div><div><span>COMBO</span><strong class="combo-value"><i id="game-combo">0</i><small>× <b id="combo-multiplier">1.0</b></small></strong></div><div class="battle-timer"><span>TIME LEFT</span><strong id="game-timer">90</strong><small>SEC</small></div></div>
+        <div class="typing-battle-card"><div class="word-heading"><span><i class="target-dot"></i> TYPE TO ATTACK</span><span id="word-difficulty" class="word-difficulty">READY</span></div><div class="battle-word" id="battle-word" aria-label="Word to type"></div><label class="typing-label" for="battle-input">Your keystrokes</label><input id="battle-input" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="The arena awaits your first keystroke…" disabled><div class="battle-card-footer"><span>Build combos for bonus damage</span><span><kbd>ESC</kbd> pause</span></div><div class="pause-overlay hidden" id="pause-overlay"><div class="pause-icon">Ⅱ</div><h2>Battle paused</h2><p>Catch your breath, warrior.</p><button class="button button-primary" id="resume-button">Resume battle <span>→</span></button></div></div>
+        <p class="arena-ai-note" id="arena-ai-note"><span>✳</span> Your AI coach is calibrating this challenge…</p>
+      </section>
+
+      <section class="page" data-page="story">
+        <div class="story-heading">
+          <p class="eyebrow"><span>✳</span> THE WORLD REMEMBERS YOUR WORDS</p>
+          <div class="story-chapter-row"><h1 id="story-chapter">Chapter II</h1><span class="story-divider"></span><span class="story-location">THE CROSSROADS</span></div>
+          <p id="story-narration" class="story-narration">The monster falls. Three paths open in the silence—and each one remembers what you type.</p>
+        </div>
+        <div class="story-layout">
+          <div class="story-routes">
+            <button class="story-route route-grove" type="button" data-story-fill="moss">
+              <span class="route-sigil">✿</span><span class="route-count">PATH 01 · RECOVERY</span>
+              <strong>The Mosslit Grove</strong><span class="route-description">A quiet green light leads through the old trees. Something ancient offers to mend your wounds.</span>
+              <span class="route-choice">TYPE <b>MOSS</b> TO FOLLOW</span>
+            </button>
+            <button class="story-route route-ember" type="button" data-story-fill="ember">
+              <span class="route-sigil">⌁</span><span class="route-count">PATH 02 · THE FORGE</span>
+              <strong>The Ember Market</strong><span class="route-description">A masked smith trades in half-remembered victories. Your next strikes could burn brighter.</span>
+              <span class="route-choice">TYPE <b>EMBER</b> TO FOLLOW</span>
+            </button>
+            <button class="story-route route-crown" type="button" data-story-fill="crown">
+              <span class="route-sigil">♜</span><span class="route-count">PATH 03 · HIGH STAKES</span>
+              <strong>The Crownless Keep</strong><span class="route-description">The black gate opens only to the brave. A terrible wyrm waits beyond it—and a greater reward.</span>
+              <span class="route-choice">TYPE <b>CROWN</b> TO FOLLOW</span>
+            </button>
+          </div>
+          <aside class="story-journal">
+            <span class="journal-mark">✦</span><p class="eyebrow">THE WAYFINDER'S JOURNAL</p>
+            <h2>Choose with<br>your own hands.</h2>
+            <p>Type a path word to decide what comes next. The route changes the next monster, your supplies, and the difficulty of the encounter.</p>
+            <label class="story-input-label" for="story-choice">YOUR CHOICE</label>
+            <input id="story-choice" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="moss, ember, or crown">
+            <button class="button button-primary story-continue" id="story-continue" type="button">Seal your fate <span>→</span></button>
+            <p class="story-feedback" id="story-feedback" aria-live="polite">Your next encounter is shaped by the word you choose.</p>
+          </aside>
+        </div>
+        <button class="text-link story-menu-link" id="new-saga" type="button">Leave the crossroads · Begin a new saga</button>
+      </section>
+
+      <section class="page" data-page="results">
+        <div class="result-screen">
+          <div class="result-emblem" id="result-emblem">✦</div><p class="eyebrow" id="result-kicker">BATTLE COMPLETE</p><h1 id="result-title">Victory is <span>yours.</span></h1><p id="result-subtitle" class="result-subtitle">The arena remembers your courage.</p>
+          <div class="result-score"><span>FINAL SCORE</span><strong id="result-score">0</strong></div>
+          <div class="result-stats"><div><span>WORDS / MIN</span><strong id="result-wpm">0</strong></div><div><span>ACCURACY</span><strong id="result-accuracy">100%</strong></div><div><span>WORDS LANDED</span><strong id="result-words">0</strong></div><div><span>BEST COMBO</span><strong id="result-combo">0×</strong></div></div>
+          <div class="result-ai"><span class="result-ai-icon">✳</span><div><strong>YOUR AI DEBRIEF <span class="model-chip">MODEL ANALYSIS</span></strong><p id="result-recommendation">Analysing your battle…</p><div id="result-target-letters" class="target-letters"></div></div></div>
+          <div class="result-actions"><button class="button button-primary button-large" id="continue-story">Continue the story <span>→</span></button><button class="button button-secondary button-large" data-page-link="stats">View your stats <span>↗</span></button><button class="text-link" id="new-battle">Choose a new battle</button></div>
+        </div>
+      </section>
+
+      <section class="page" data-page="stats">
+        <div class="page-heading stats-heading"><p class="eyebrow"><span>✳</span> YOUR TRAINING GROUNDS</p><h1>Progress, <span>measured.</span></h1><p>Each battle makes you sharper. Here's what your practice looks like so far.</p></div>
+        <div class="stats-overview"><article><span>BATTLES FOUGHT</span><strong id="total-sessions">0</strong><small>saved locally on this device</small></article><article><span>BEST SPEED</span><strong><i id="stats-best-wpm">0</i> <small>WPM</small></strong><small>characters / 5 / minutes</small></article><article><span>AVG ACCURACY</span><strong><i id="stats-average-accuracy">0</i><small>%</small></strong><small>correct / total keystrokes</small></article><article><span>MODEL SKILL</span><strong class="skill-label" id="stats-skill">—</strong><small>Random Forest prediction</small></article></div>
+        <div class="chart-card"><div class="chart-heading"><div><h2>Your typing journey</h2><p>Words per minute and accuracy across recent battles.</p></div><span class="chart-legend"><i></i> WPM <b></b> ACCURACY</span></div><div class="chart-wrap"><canvas id="progress-chart" aria-label="Chart of typing speed and accuracy over your recent battles"></canvas><p id="chart-fallback" class="chart-fallback hidden">Charts appear here after your first battle.</p></div></div>
+        <div class="history-card"><div class="chart-heading"><div><h2>Battle history</h2><p>Your 50 most recent training sessions.</p></div><button class="text-link" data-page-link="practice">Practice weak letters →</button></div><div class="table-wrap"><table><thead><tr><th>DATE</th><th>MODE</th><th>SPEED</th><th>ACCURACY</th><th>SCORE</th><th>AI LEVEL</th></tr></thead><tbody id="history-rows"><tr><td colspan="6" class="empty-table">No battles yet. Your story starts with one.</td></tr></tbody></table></div></div>
+      </section>
+
+      <section class="page" data-page="practice">
+        <div class="page-heading"><button class="back-link" data-page-link="home">← Home</button><p class="eyebrow"><span>✳</span> PERSONALIZED BY YOUR PRACTICE</p><h1>Train your <span>weak spots.</span></h1><p>Your recent typing history helps the coach choose focused letter and word drills.</p></div>
+        <div class="practice-layout"><div class="practice-card"><div class="practice-card-top"><span class="practice-symbol">⌨</span><span class="model-chip">PERSONALIZED DRILLS</span></div><h2>Your custom warm-up</h2><p id="practice-message">Loading practice suggestions…</p><div id="practice-targets" class="letter-targets"></div><div id="practice-words" class="practice-words"></div><button class="button button-primary" id="start-practice">Practice these words <span>→</span></button><div id="practice-live" class="practice-live hidden"><span>TYPE THIS WORD · PRESS ENTER TO CHECK</span><strong id="practice-word">—</strong><label class="typing-label" for="practice-input">Type this practice word</label><input id="practice-input" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Type the word and press Enter"></div><div class="practice-feedback" id="practice-feedback" aria-live="polite"></div></div><div class="practice-guide"><p class="eyebrow">A NOTE FROM YOUR COACH</p><h2>Steady beats speedy.</h2><p>Take the word one letter at a time. Each accurate keystroke builds muscle memory—there's no timer and no monster to worry about.</p><div class="practice-tip"><span>✳</span><p>Finish a real battle first so I can spot the letters you mistype most often.</p></div><button class="text-link" data-page-link="modes">Back to battles →</button></div></div>
+      </section>
+    </main>
+
+    <footer class="site-footer"><a class="footer-brand" href="#" data-page-link="home">KEYFLOW <span>BATTLE</span></a><span>Built for skill, powered by learning.</span><span><i></i> Practice data stays on this device</span></footer>
+
+    <dialog id="howto-dialog" class="info-dialog"><form method="dialog"><button class="dialog-close" aria-label="Close">×</button><p class="eyebrow"><span>✳</span> THE FIELD GUIDE</p><h2>How to play</h2><ol><li><b>Choose your battle.</b> Training has no pressure; Boss mode brings tougher monsters and longer words.</li><li><b>Type the glowing word.</b> Each correct word swings your sword. Faster hits and longer combos deal more damage.</li><li><b>Guard your health.</b> In battle modes, every fourth mistake costs health. Time-out phases hit hard too.</li><li><b>Choose your own story.</b> Between fights, type <b>moss</b>, <b>ember</b>, or <b>crown</b> to change the next monster and your supplies.</li><li><b>Learn from the fight.</b> Your results train a Random Forest model that recommends a skill level and next difficulty.</li></ol><p class="dialog-note">Skill categories are trained on small, documented synthetic sample data for this project demonstration. They are learning signals—not a validated assessment.</p><button class="button button-primary" value="close">Ready to fight <span>→</span></button></form></dialog>
+    <dialog id="settings-dialog" class="info-dialog"><form method="dialog"><button class="dialog-close" aria-label="Close">×</button><p class="eyebrow"><span>✳</span> ARENA SETTINGS</p><h2>Make yourself at home.</h2><p class="dialog-copy">Sound and battle preferences live in this browser. No personal profile is collected.</p><label class="setting-row"><span><strong>Battle sounds</strong><small>Music and sword / hit effects</small></span><input type="checkbox" id="settings-sound"></label><button class="button button-primary" value="close">Done <span>→</span></button></form></dialog>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  </body>
+</html>
